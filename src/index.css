@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core palette - Deep space dark theme */
+    --background: 228 20% 6%;
+    --foreground: 220 20% 92%;
+    --card: 228 18% 10%;
+    --card-foreground: 220 20% 92%;
+    --popover: 228 18% 10%;
+    --popover-foreground: 220 20% 92%;
+
+    /* Primary - Electric indigo */
+    --primary: 252 87% 67%;
+    --primary-foreground: 228 20% 6%;
+
+    /* Secondary */
+    --secondary: 228 16% 16%;
+    --secondary-foreground: 220 20% 85%;
+
+    --muted: 228 14% 14%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 252 60% 50%;
+    --accent-foreground: 220 20% 95%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 228 14% 18%;
+    --input: 228 14% 18%;
+    --ring: 252 87% 67%;
+    --radius: 0.75rem;
+
+    /* Role colors */
+    --role-pm: 217 91% 60%;
+    --role-ad: 25 95% 53%;
+    --role-gov: 152 69% 45%;
+
+    /* Semantic design tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(252 87% 67% / 0.15), hsl(280 80% 60% / 0.08), transparent);
+    --gradient-card-pm: linear-gradient(135deg, hsl(217 91% 60% / 0.08), hsl(217 91% 60% / 0.02));
+    --gradient-card-ad: linear-gradient(135deg, hsl(25 95% 53% / 0.08), hsl(25 95% 53% / 0.02));
+    --gradient-card-gov: linear-gradient(135deg, hsl(152 69% 45% / 0.08), hsl(152 69% 45% / 0.02));
+    --gradient-section: linear-gradient(180deg, hsl(228 20% 6%), hsl(228 18% 8%), hsl(228 20% 6%));
+
+    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.3);
+    --shadow-glow-pm: 0 0 40px -10px hsl(217 91% 60% / 0.25);
+    --shadow-glow-ad: 0 0 40px -10px hsl(25 95% 53% / 0.25);
+    --shadow-glow-gov: 0 0 40px -10px hsl(152 69% 45% / 0.25);
+    --shadow-glow-primary: 0 0 60px -15px hsl(252 87% 67% / 0.3);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Section shared layout */
+  .section-container {
+    @apply max-w-6xl mx-auto px-6 py-24;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold tracking-[0.2em] uppercase mb-4;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold tracking-tight mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-base md:text-lg leading-relaxed max-w-2xl;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Role card base */
+  .role-card {
+    @apply rounded-xl border p-6 transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+  .role-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .role-card-pm {
+    background: var(--gradient-card-pm);
+    border-color: hsl(var(--role-pm) / 0.2);
+  }
+  .role-card-pm:hover {
+    border-color: hsl(var(--role-pm) / 0.4);
+    box-shadow: var(--shadow-glow-pm);
+  }
+
+  .role-card-ad {
+    background: var(--gradient-card-ad);
+    border-color: hsl(var(--role-ad) / 0.2);
+  }
+  .role-card-ad:hover {
+    border-color: hsl(var(--role-ad) / 0.4);
+    box-shadow: var(--shadow-glow-ad);
+  }
+
+  .role-card-gov {
+    background: var(--gradient-card-gov);
+    border-color: hsl(var(--role-gov) / 0.2);
+  }
+  .role-card-gov:hover {
+    border-color: hsl(var(--role-gov) / 0.4);
+    box-shadow: var(--shadow-glow-gov);
+  }
+
+  /* Badge tokens */
+  .role-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium;
+  }
+  .role-badge-pm {
+    background: hsl(var(--role-pm) / 0.15);
+    color: hsl(var(--role-pm));
+  }
+  .role-badge-ad {
+    background: hsl(var(--role-ad) / 0.15);
+    color: hsl(var(--role-ad));
+  }
+  .role-badge-gov {
+    background: hsl(var(--role-gov) / 0.15);
+    color: hsl(var(--role-gov));
+  }
+
+  /* Concept number badge */
+  .concept-number {
+    @apply w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold;
+    background: hsl(var(--primary) / 0.15);
+    color: hsl(var(--primary));
+  }
+
+  /* Flow step connector */
+  .flow-step {
+    @apply flex items-center gap-3 text-sm py-2;
+  }
+  .flow-step-dot {
+    @apply w-2 h-2 rounded-full flex-shrink-0;
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply backdrop-blur-xl border;
+    background: hsl(var(--card) / 0.6);
+    border-color: hsl(var(--border) / 0.5);
+  }
+
+  /* Glow orbs */
+  .glow-orb {
+    @apply absolute rounded-full blur-3xl pointer-events-none;
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+}
