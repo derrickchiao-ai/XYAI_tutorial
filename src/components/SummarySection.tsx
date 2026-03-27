@@ -81,7 +81,7 @@ export function SummarySection() {
               style={{ background: 'hsl(var(--primary) / 0.06)' }}
             />
             <img
-              src="/images/three-graduates.png"
+              src={`${import.meta.env.BASE_URL}images/three-graduates.png`}
               alt="三位毕业生的职场故事"
               className="relative w-full rounded-2xl"
               loading="lazy"

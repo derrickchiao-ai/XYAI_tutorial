@@ -101,7 +101,7 @@ export function HeroSection() {
                 style={{ background: 'hsl(var(--primary) / 0.1)' }}
               />
               <img
-                src="/images/hero-brain.png"
+                src={`${import.meta.env.BASE_URL}images/hero-brain.png`}
                 alt="AI 大脑神经网络"
                 className="relative w-full rounded-2xl"
                 loading="eager"

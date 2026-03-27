@@ -306,7 +306,7 @@ export function AgentSection() {
                 style={{ background: 'hsl(var(--primary) / 0.08)' }}
               />
               <img
-                src="/images/agent-assembly.png"
+                src={`${import.meta.env.BASE_URL}images/agent-assembly.png`}
                 alt="Agent 组成示意"
                 className="relative w-full rounded-2xl"
                 loading="lazy"
