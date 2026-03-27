@@ -309,7 +309,7 @@ export function AgentSection() {
                 src={`${import.meta.env.BASE_URL}images/agent-assembly.png`}
                 alt="Agent 组成示意"
                 className="relative w-full rounded-2xl"
-                loading="lazy"
+                loading="eager"
               />
             </div>
           </div>

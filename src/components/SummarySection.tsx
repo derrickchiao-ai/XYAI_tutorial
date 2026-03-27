@@ -84,7 +84,7 @@ export function SummarySection() {
               src={`${import.meta.env.BASE_URL}images/three-graduates.png`}
               alt="三位毕业生的职场故事"
               className="relative w-full rounded-2xl"
-              loading="lazy"
+              loading="eager"
             />
           </div>
         </AnimatedSection>
