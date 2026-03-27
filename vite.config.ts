@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 export default defineConfig({
-  base: '/XYAI_tutorial/',
+  base: process.env.GITHUB_ACTIONS ? '/XYAI_tutorial/' : '/',
   plugins: [react()],
   resolve: {
     alias: {
